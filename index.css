@@ -1,9 +1,15 @@
 :root {
   /* Colors */
-  --light-red: hsl(0, 100%, 67%);
-  --orangey-yellow: hsl(39, 100%, 56%);
-  --green-teal: hsl(166, 100%, 37%);
-  --cobalt-blue: hsl(234, 85%, 45%);
+  --light-red-full: hsla(0, 100%, 67%, 0.8);
+  --light-red-light: hsla(0, 100%, 67%, 0.1);
+
+  --orangey-yellow-full: hsla(39, 100%, 56%, 0.8);
+  --orangey-yellow-light: hsla(39, 100%, 56%, 0.1);
+
+  --green-teal-full: hsla(166, 100%, 37%, 0.8);
+  --green-teal-light: hsla(166, 100%, 37%, 0.1);
+  --cobalt-blue-full: hsla(234, 85%, 45%, 0.8);
+  --cobalt-blue-light: hsla(234, 85%, 45%, 0.1);
   --White: hsl(0, 0%, 100%);
   --pale-blue: hsl(221, 100%, 96%);
   --light-lavender: hsl(241, 100%, 89%);
@@ -17,12 +23,199 @@
   --violet-blue-circle: hsla(256, 72%, 46%, 1);
   --presian-blue-circle: hsla(241, 72%, 46%, 0);
 }
-
+@font-face {
+  font-family: "Hanken";
+  src: url("./assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+}
 body {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Hanken";
+}
+.maindiv {
+  display: flex;
+  flex: 1;
+  max-width: 60%;
+  box-shadow: var(--pale-blue) 4px 8px 20px;
+  border-radius: 10% 5% 5% 10%;
+  max-width: 760px;
+}
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3% / 15%;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 10px;
+}
+.redbg {
+  background-color: var(--light-red-light);
+}
+.greentealbg {
+  background-color: var(--green-teal-light);
+}
+.orangeybg {
+  background-color: var(--orangey-yellow-light);
+}
+.cobaltbg {
+  background-color: var(--cobalt-blue-light);
+}
+h3 {
+  font-size: 22px;
 }
 
 p {
   font-size: 18px;
+}
+
+.summary {
+  color: var(--dark-gray-blue);
+}
+
+.leftdiv {
+  background-image: linear-gradient(
+    var(--light-stale-blue),
+    var(--light-royal-blue)
+  );
+  width: 100%;
+  padding: 2rem;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.leftdiv p,
+.leftdiv h3 {
+  color: var(--light-lavender);
+}
+
+.rightdiv {
+  width: 100%;
+  padding: 2rem;
+}
+h1 {
+  color: var(--White);
+}
+.icontext {
+  display: flex;
+  align-items: center;
+}
+svg {
+  margin-right: 15px;
+}
+.icontext h3 {
+  font-size: 16px;
+}
+.cobaltbg h3 {
+  color: var(--cobalt-blue-full);
+}
+.redbg h3 {
+  color: var(--light-red-full);
+}
+
+.greentealbg h3 {
+  color: var(--green-teal-full);
+}
+
+.orangeybg h3 {
+  color: var(--orangey-yellow-full);
+}
+.boldspan {
+  font-weight: bold;
+  color: var(--dark-gray-blue);
+}
+.resultspan {
+  color: gray;
+  font-weight: bold;
+}
+.scorediv {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.resulttext {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.resultimpression {
+  font-size: 30px;
+}
+.buttondiv {
+  padding: 0;
+  margin-top: 30px;
+}
+.buttondiv button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10% / 50%;
+  border-style: none;
+  color: white;
+  font-family: "Hanken";
+  font-size: 18px;
+  background-color: var(--dark-gray-blue);
+}
+.buttondiv button:hover {
+  background-image: linear-gradient(
+    var(--light-stale-blue),
+    var(--light-royal-blue)
+  );
+  cursor: pointer;
+}
+.result:last-child {
+  margin-bottom: 0;
+}
+.circlediv {
+  padding: 3rem 4rem;
+  background-image: linear-gradient(
+    180deg,
+    var(--violet-blue-circle),
+    var(--presian-blue-circle)
+  );
+  border-radius: 50%;
+}
+.circlediv p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+.circlediv p:first-child {
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 500px) {
+  .attribution {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+  }
+  body {
+    margin: 0;
+    display: block;
+    background-color: white;
+    height: auto;
+  }
+  .maindiv {
+    flex-direction: column;
+    border-radius: 0%;
+    box-shadow: none;
+  }
+  .leftdiv,
+  .rightdiv {
+    width: auto;
+  }
+  .leftdiv {
+    border-radius: 0% 0% 10% 10%;
+  }
 }
